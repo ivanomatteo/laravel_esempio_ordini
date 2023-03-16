@@ -11,9 +11,18 @@ use Tests\TestCase;
 
 class RelationsTest extends TestCase
 {
+    use RefreshDatabase;
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+        
+        $this->seed();
+    }
 
     public function test_user_relations_works(): void
     {
+
         /** @var User|null */
         $user = User::first();
         $this->assertInstanceOf(Order::class, $user->orders->first());
