@@ -29,6 +29,6 @@ class Product extends Model
 
     function orders()
     {
-        return $this->belongsToMany(Order::class)->using(OrderProduct::class);
+        return $this->belongsToMany(Order::class,'pivot_order_product')->using(OrderProduct::class);
     }
 }

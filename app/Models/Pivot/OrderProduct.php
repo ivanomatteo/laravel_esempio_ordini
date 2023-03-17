@@ -24,5 +24,5 @@ use Illuminate\Database\Eloquent\Relations\Pivot;
  */
 class OrderProduct extends Pivot
 {
-    //
+    protected $table='pivot_order_product';
 }

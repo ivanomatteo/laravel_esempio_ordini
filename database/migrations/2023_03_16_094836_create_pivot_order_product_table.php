@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('order_product', function (Blueprint $table) {
+        Schema::create('pivot_order_product', function (Blueprint $table) {
             $table->id();
             $table->foreignId('order_id')->index()->constrained()->cascadeOnDelete();
             $table->foreignId('product_id')->index()->constrained()->cascadeOnDelete();
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('order_product');
+        Schema::dropIfExists('pivot_order_product');
     }
 };
