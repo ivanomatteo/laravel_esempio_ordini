@@ -18,7 +18,9 @@ class DashboardController extends Controller
         $user = $request->user();
         //$user = Auth::user();
 
-        $myOrders = $user->orders()->paginate(5);
+        $myOrders = $user->orders()
+            ->paginate(min((int)$request->input('per_page', 10), 50));
+
         //$myOrders = $user->orders;
 
         return Inertia::render('Dashboard', compact('myOrders'));
